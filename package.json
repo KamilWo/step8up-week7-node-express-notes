@@ -1,0 +1,82 @@
+{
+  "name": "step8up-week7-node-express-notes",
+  "version": "0.1.0",
+  "description": "Full Stack Notes Application using Node.js and Express",
+  "main": "src/server/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/server/server.js",
+    "dev": "nodemon src/server/server.js",
+    "lint": "eslint src/**/*.js",
+    "prettier": "npx prettier ./src/**/*.js --write",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "test:e2e": "jest tests/e2e --runInBand",
+    "validate": "npm run prettier && npm run lint && npx stylelint src/**/*.css; npx html-validate src/**/*.html",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "jest --bail --findRelatedTests --passWithNoTests"
+    ],
+    "*.{json,yaml,css,html}": [
+      "prettier --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KamilWo/step8up-week7-node-express-notes.git"
+  },
+  "keywords": [
+    "notes",
+    "taking notes",
+    "full-stack application",
+    "node.js",
+    "nodejs",
+    "express",
+    "express.js"
+  ],
+  "author": "Kamil Wozniak",
+  "license": "GPLv3",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KamilWo/step8up-week7-node-express-notes/issues"
+  },
+  "homepage": "https://github.com/KamilWo/step8up-week7-node-express-notes#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/server/**/*.js"
+    ],
+    "testMatch": [
+      "**/tests/unit/**/*.js",
+      "**/tests/integration/**/*.js",
+      "**/tests/e2e/**/*.js"
+    ]
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "html-validator": "^5.1.18",
+    "husky": "^9.1.7",
+    "jest": "^30.0.4",
+    "lint-staged": "^16.1.2",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.20.0",
+    "stylelint-config-standard": "^38.0.0",
+    "supertest": "^7.1.3"
+  }
+}
