@@ -11,7 +11,7 @@
   --color-edit-hover: #d4ac0d;
   --color-text: #333;
   --color-headings: #2c3e50;
-  --color-background: #f4f4f4;
+  --color-background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   --color-surface: #fff;
   --color-surface-alt: #ecf0f1;
   --color-border: #ddd;
@@ -40,9 +40,9 @@
   --color-edit-hover: #f5d76e;
   --color-text: #ecf0f1;
   --color-headings: #fff;
-  --color-background: #2c3e50;
+  --color-background: linear-gradient(135deg, #2c3e50 0%, #4b6584 100%);
   --color-surface: #34495e;
   --color-surface-alt: #2c3e50;
   --color-border: #4b6584;
-  --color-container-shadow: #00000066;
+  --color-container-shadow: #0006;
 }

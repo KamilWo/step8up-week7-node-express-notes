@@ -1,0 +1,2 @@
+document.addEventListener("DOMContentLoaded",()=>{(()=>{let e=document.getElementById("theme-toggle-btn");if(!e)return;let t=e=>{document.documentElement.setAttribute("data-theme",e),localStorage.setItem("notes-theme",e)};e.addEventListener("click",()=>{t("light"===(document.documentElement.getAttribute("data-theme")||"light")?"dark":"light")});let d=localStorage.getItem("notes-theme"),n=window.matchMedia("(prefers-color-scheme: dark)").matches;d?t(d):n?t("dark"):t("light")})()});
+//# sourceMappingURL=client.ef3cef39.js.map

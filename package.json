@@ -1,10 +1,11 @@
 {
   "name": "step8up-week7-node-express-notes",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Full Stack Notes Application using Node.js and Express",
-  "main": "src/server/server.js",
   "private": true,
   "scripts": {
+    "prebuild": "rimraf ./public",
+    "build": "parcel build src/client/index.html --dist-dir ./public",
     "start": "node src/server/server.js",
     "dev": "nodemon src/server/server.js",
     "lint": "eslint src/**/*.js",
@@ -14,14 +15,13 @@
     "test:unit": "jest tests/unit",
     "test:integration": "jest tests/integration",
     "test:e2e": "jest tests/e2e --runInBand",
-    "validate": "npm run prettier && npm run lint && npx stylelint src/**/*.css; npx html-validate src/**/*.html",
+    "validate": "npx stylelint src/**/*.css; npx html-validate src/**/*.html",
     "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint --fix",
-      "prettier --write",
-      "jest --bail --findRelatedTests --passWithNoTests"
+      "prettier --write"
     ],
     "*.{json,yaml,css,html}": [
       "prettier --write"
@@ -74,6 +74,7 @@
     "jest": "^30.0.4",
     "lint-staged": "^16.1.2",
     "nodemon": "^3.1.10",
+    "parcel": "^2.15.4",
     "prettier": "^3.6.2",
     "stylelint": "^16.20.0",
     "stylelint-config-standard": "^38.0.0",
