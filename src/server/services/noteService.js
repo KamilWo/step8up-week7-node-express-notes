@@ -4,6 +4,7 @@
 const { pool } = require("../config/db");
 const Note = require("../models/noteModel");
 
+const db_name = process.env.PGDATABASE;
 /**
  * Reads all notes from the database.
  * @returns {Promise<Note[]>} A promise that resolves to an array of Note objects.
@@ -11,7 +12,7 @@ const Note = require("../models/noteModel");
 const getNotes = async () => {
   try {
     const result = await pool.query(
-      'SELECT * FROM notes ORDER BY "updatedAt" DESC'
+      `SELECT * FROM ${db_name} ORDER BY "updatedAt" DESC`
     );
     return result.rows.map(Note.fromObject);
   } catch (error) {
@@ -29,7 +30,7 @@ const createNote = async (noteData) => {
   try {
     const { title, content } = noteData;
     const query = `
-      INSERT INTO notes (title, content)
+      INSERT INTO ${db_name} (title, content)
       VALUES ($1, $2)
       RETURNING *;
     `;
@@ -48,7 +49,9 @@ const createNote = async (noteData) => {
  */
 const getNoteById = async (id) => {
   try {
-    const result = await pool.query("SELECT * FROM notes WHERE id = $1", [id]);
+    const result = await pool.query(`SELECT * FROM ${db_name} WHERE id = $1`, [
+      id,
+    ]);
     if (result.rows.length === 0) {
       return null;
     }
@@ -87,7 +90,7 @@ const updateNote = async (id, updatedData) => {
     values.push(id); // Add the ID for the WHERE clause
 
     const query = `
-      UPDATE notes
+      UPDATE ${db_name}
       SET ${fields.join(", ")}
       WHERE id = $${paramIndex}
       RETURNING *;
@@ -112,7 +115,9 @@ const updateNote = async (id, updatedData) => {
  */
 const deleteNote = async (id) => {
   try {
-    const result = await pool.query("DELETE FROM notes WHERE id = $1", [id]);
+    const result = await pool.query(`DELETE FROM ${db_name} WHERE id = $1`, [
+      id,
+    ]);
     // result.rowCount will be 1 if a row was deleted, 0 otherwise.
     return result.rowCount > 0;
   } catch (error) {
