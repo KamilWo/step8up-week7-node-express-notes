@@ -4,9 +4,22 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
+const { pool } = require("../config/db"); // Import database pool for health check
+const notesApiRoutes = require("./api/notes"); // Import API routes
 
-// Import API routes
-const notesApiRoutes = require("./api/notes");
+// --- Health Check Route ---
+router.get("/healthz", async (req, res) => {
+  try {
+    // A simple query to check if the database is responsive.
+    // 'SELECT 1' is a lightweight and standard way to ping a DB.
+    await pool.query("SELECT 1");
+    res.status(200).json({ status: "ok", database: "connected" });
+  } catch (error) {
+    console.error("Health check failed:", error);
+    // 503 Service Unavailable is the standard code for a failed health check
+    res.status(503).json({ status: "error", database: "disconnected" });
+  }
+});
 
 // Mount API routes under a specific prefix
 router.use("/api/notes", notesApiRoutes);

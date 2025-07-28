@@ -1,6 +1,6 @@
 {
   "name": "step8up-week7-node-express-notes",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Full Stack Notes Application using Node.js and Express",
   "private": true,
   "scripts": {
@@ -64,6 +64,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "pg": "^8.16.3",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
