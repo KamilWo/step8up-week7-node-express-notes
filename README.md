@@ -4,6 +4,12 @@
 
 ---
 
+## 🌐 Website public URL
+
+Render.com URL: [https://step8up-week7-node-express-notes.onrender.com/](https://step8up-week7-node-express-notes.onrender.com/)
+
+---
+
 ## ✨ Overview
 
 I built a **full-stack application** in **[Node.js](https://nodejs.org/)** and **[Express](https://expressjs.com/)**,
@@ -39,12 +45,16 @@ Finally, the application is deployed on **Render.com**, showcasing practical dep
 
 ## ✅ Acceptance Criteria
 
-* **Express Server Setup**: An Express server is set up to serve both API endpoints and static frontend files.
-* **Frontend UI**: A user-friendly frontend UI is implemented for adding, viewing, editing, and deleting notes.
-* **CRUD Operations**: All Create, Read, Update, and Delete operations for notes are fully implemented and functional.
-* **Persistent Storage**: Notes are stored persistently (e.g., using a JSON file or a database).
-* **Render.com Deployment**: The application is successfully deployed on Render.com.
-* **Submission**: Both the GitHub repository link and the deployed Render link are provided.
+* [X] **Express Server Setup**: An Express server is set up to serve both API endpoints and static frontend files.
+* [X] **Frontend UI**: A user-friendly frontend UI is implemented for adding, viewing, editing, and deleting notes.
+* [X] **CRUD Operations**: All Create, Read, Update, and Delete operations for notes are fully implemented and functional.
+* [X] **Persistent Storage**: Notes are stored persistently (e.g., using a JSON file or a database).
+* [X] **Render.com Deployment**: The application is successfully deployed on Render.com.
+* [X] **Submission**: Both the GitHub repository link and the deployed Render link are provided.
+
+## ✅ Extra commitment
+
+* [X] **Persistent Storage in database**: Notes working with JSON file migrated to PostgreSQL database.
 
 ---
 
