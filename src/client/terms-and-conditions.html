@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Express Notes - Kamil Wozniak</title>
+    <title>Terms and Conditions - Express Notes - Kamil Wozniak</title>
     <!-- Favicon -->
     <link
       rel="icon"
@@ -38,37 +38,17 @@
     </header>
 
     <main class="container">
-      <form id="note-form">
-        <input type="hidden" id="note-id" />
-        <div class="form-group">
-          <label for="note-title">Title</label>
-          <input
-            type="text"
-            id="note-title"
-            placeholder="Enter note title"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="note-content">Content</label>
-          <textarea
-            id="note-content"
-            placeholder="Enter note content"
-            rows="4"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Save Note</button>
-        <button type="button" id="clear-btn" class="btn btn-secondary">
-          New Note
-        </button>
-      </form>
-
-      <hr />
-
-      <h2>Existing Notes</h2>
-      <ul id="notes-list">
-        <!-- Notes will be dynamically inserted here -->
+      <h2>Terms of Use</h2>
+      <p>By using this application, you agree to the following terms:</p>
+      <ul>
+        <li>
+          This application is provided "as is", without warranty of any kind.
+        </li>
+        <li>You are responsible for the content you create and store.</li>
+        <li>
+          We are not liable for any data loss or damages that may occur from
+          using this application.
+        </li>
       </ul>
     </main>
 
@@ -83,6 +63,5 @@
 
     <!-- Custom JS -->
     <script src="./assets/js/layout.js"></script>
-    <script src="./assets/js/script.js"></script>
   </body>
 </html>

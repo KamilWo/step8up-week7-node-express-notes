@@ -1,0 +1,13 @@
+@media (width <= 600px) {
+  #notes-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #notes-list li .note-actions {
+    margin-top: var(--spacing-md);
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

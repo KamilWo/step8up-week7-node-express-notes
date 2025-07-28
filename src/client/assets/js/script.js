@@ -6,38 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const noteContentInput = document.getElementById("note-content");
   const notesList = document.getElementById("notes-list");
   const clearBtn = document.getElementById("clear-btn");
-  const themeToggleBtn = document.getElementById("theme-toggle-btn");
 
   const API_URL = "/api/notes";
-
-  // --- Theme Toggler Logic ---
-  const applyTheme = (theme) => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("notes-theme", theme);
-  };
-
-  const toggleTheme = () => {
-    const currentTheme =
-      document.documentElement.getAttribute("data-theme") || "light";
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-    applyTheme(newTheme);
-  };
-
-  themeToggleBtn.addEventListener("click", toggleTheme);
-
-  // Apply saved theme or system preference on initial load
-  const savedTheme = localStorage.getItem("notes-theme");
-  const systemPrefersDark = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
-
-  if (savedTheme) {
-    applyTheme(savedTheme);
-  } else if (systemPrefersDark) {
-    applyTheme("dark");
-  } else {
-    applyTheme("light");
-  }
 
   // --- API Functions ---
 

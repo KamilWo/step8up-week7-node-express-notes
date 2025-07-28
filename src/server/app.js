@@ -2,7 +2,7 @@
 const express = require("express"); // For building web application
 const path = require("path"); // For serving static files
 const cors = require("cors"); // For frontend/backend communication in development
-const notesApiRoutes = require("./routes/api/notes"); // Import the API routes for notes
+const allRoutes = require("./routes"); // Import the main router
 const errorHandler = require("./middleware/errorHandler"); // Global error handling middleware
 
 // Create Express app
@@ -17,18 +17,14 @@ app.use(express.json());
 // Middleware to parse incoming URL-encoded requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, "../client")));
+// Serve static files from the 'public' directory (for CSS, JS, images)
+app.use(express.static(path.join(__dirname, "../../public")));
 
-// Routes
-app.use("/api/notes", notesApiRoutes);
+// Mount all routes from the main router
+app.use("/", allRoutes);
 
-// A simple welcome route for the root API path
-app.get("/api", (req, res) => {
-  res.json({ message: "Welcome to the Notes API." });
-});
-
-// Wildcard route to handle undefined routes
+// Wildcard route to handle undefined routes (404 Not Found)
+// This must be placed after all other routes. Express 5.x.x has named parameter (any)
 app.all("*any", (req, res) => {
   res.status(404);
   // If the request is for an API route, send JSON, otherwise let the client handle it.
@@ -36,7 +32,7 @@ app.all("*any", (req, res) => {
     return res.status(404).json({ error: "API route not found" });
   }
   // For non-API routes, send the main HTML file to let the client-side router work.
-  res.sendFile(path.join(__dirname, "../client/index.html"));
+  res.sendFile(path.join(__dirname, "../../public/index.html"));
 });
 
 app.use(errorHandler); // Global error handling middleware (should be last)
