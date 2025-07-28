@@ -1,6 +1,6 @@
 {
   "name": "step8up-week7-node-express-notes",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Full Stack Notes Application using Node.js and Express",
   "private": true,
   "scripts": {
