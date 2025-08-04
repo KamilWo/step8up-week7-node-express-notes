@@ -1,0 +1,26 @@
+# Exported from Render on 2025-08-04T21:03:24Z
+services:
+  - type: web
+    name: step8up-week7-node-express-notes
+    runtime: node
+    repo: https://github.com/KamilWo/step8up-week7-node-express-notes
+    plan: free
+    envVars:
+      - key: PGUSER
+        sync: false
+      - key: PGPASSWORD
+        sync: false
+      - key: PGHOST
+        sync: false
+      - key: PGDATABASE
+        sync: false
+      - key: PGPORT
+        sync: false
+      - key: NODE_ENV
+        sync: false
+    region: virginia
+    buildCommand: yarn --frozen-lockfile install
+    startCommand: node src/server/server.js
+    healthCheckPath: /healthz
+    autoDeployTrigger: "off"
+version: "1"
