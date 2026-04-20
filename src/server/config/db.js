@@ -1,20 +1,17 @@
 // This file contains database connection setup for PostgreSQL.
-
 const { Pool } = require("pg");
 
-// The pool will automatically use the following environment variables if they are set:
-// PGHOST, PGUSER, PGDATABASE, PGPASSWORD, PGPORT
-// This avoids hardcoding credentials in the code.
 // Define the base configuration for the pool.
-const poolConfig = {};
-
 // For production environments (like Render, Heroku), a secure SSL connection is required.
 // The exact SSL configuration can vary by provider.
-if (process.env.NODE_ENV === "production") {
-  poolConfig.ssl = {
-    rejectUnauthorized: false,
-  };
-}
+const poolConfig = {
+  connectionString: process.env.DATABASE_URL,
+  ssl:
+    process.env.NODE_ENV === "production"
+      ? { rejectUnauthorized: false }
+      : false,
+};
+
 const pool = new Pool(poolConfig);
 
 const connectDB = async () => {

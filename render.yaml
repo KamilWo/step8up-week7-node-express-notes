@@ -6,17 +6,11 @@ services:
     repo: https://github.com/KamilWo/step8up-week7-node-express-notes
     plan: free
     envVars:
-      - key: PGUSER
-        sync: false
-      - key: PGPASSWORD
-        sync: false
-      - key: PGHOST
-        sync: false
-      - key: PGDATABASE
-        sync: false
-      - key: PGPORT
+      - key: DATABASE_URL
         sync: false
       - key: NODE_ENV
+        sync: false
+      - key: PGDATABASE
         sync: false
     region: virginia
     buildCommand: yarn --frozen-lockfile install
